@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  - var result = [{"window_style":"Oval","window_type":"fiber","window_size":5},{"window_style":"Square","window_type":"glass","window_size":9},{"window_style":"circle","window_type":"Iron","window_size":15}]
+  div.container-fluid
+     div.row
+        each item,index in result
+            div.col-sm-2(onclick=`buy(${index})`) window style: #{item["window_style"]}  <br>  window type: #{item["window_type"]} <br> window size: #{item["window_size"]} 
+  script.
+      function buy(index){
+         alert("you purchased item "+(index+1))
+      }
