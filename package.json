@@ -1,5 +1,5 @@
 {
-  "name": "f2wb11vallabhaneni",
+  "name": "f2db11vallabhaneni",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -19,5 +19,14 @@
   "main": "app.js",
   "author": "Abhilash",
   "license": "ISC",
-  "description": ""
+  "description": "Abhilash ReadMe \r Render server link:https://f2db11vallabhaneni.onrender.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abhivallabhaneni/f2db11Vallabhaneni.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Abhivallabhaneni/f2db11Vallabhaneni/issues"
+  },
+  "homepage": "https://github.com/Abhivallabhaneni/f2db11Vallabhaneni#readme",
+  "devDependencies": {}
 }

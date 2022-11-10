@@ -5,5 +5,9 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('window', { title: 'Search Results window' });
 });
-
+var express = require('express');
+const window_controlers= require('../controllers/window');
+var router = express.Router();
+/* GET costumes */
+router.get('/', window_controlers.window_view_all_Page );
 module.exports = router;
