@@ -10,4 +10,6 @@ const window_controlers= require('../controllers/window');
 var router = express.Router();
 /* GET costumes */
 router.get('/', window_controlers.window_view_all_Page );
+// GET request for one window. 
+router.get('/window/:id', window_controlers.window_detail); 
 module.exports = router;
