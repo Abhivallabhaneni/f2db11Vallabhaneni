@@ -8,9 +8,9 @@ block content
   else 
     - let windowid = toShow._id 
     - let window_type= toShow.window_type
-    - let windowsize = toShow.size 
+    - let windowize = toShow.size 
     - let windowcost = toShow.cost 
-    - let actionid = "/resource/windows/" + windowid 
+    - let actionid = "/resource/window/" + windowid 
     script let actionid = "#{actionid}" 
     div 
       div.row 
@@ -21,7 +21,7 @@ block content
         div #{window_type} 
       div.row 
         div(class='windowAttr mr-3') window size is: 
-        div #{windowsize} 
+        div #{windowize} 
       div.row 
         div(class='windowAttr mr-3') window cost is: 
         div #{windowcost} 
@@ -32,7 +32,7 @@ block content
   script. 
     function cancel() { 
       // Go back to the home page for the window collection 
-      window.location.href='/windows' 
+      window.location.href='/window' 
     } 
   script. 
     function deleteOnid() { 
@@ -44,7 +44,7 @@ block content
         return resp.json(); // or resp.text() or whatever the server sends 
       }).then((body) => { 
         alert("Delete succeded") 
-        window.location.href='/windows' 
+        window.location.href='/window' 
         // TODO handle body 
       }).catch((error) => { 
         // TODO handle error 

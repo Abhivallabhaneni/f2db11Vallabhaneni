@@ -3,14 +3,14 @@ extends layout
 block content 
   h1= title 
   
-  form(id='windowForm', action="/resource/windows", method="POST" ,class='d') 
+  form(id='windowForm', action="/resource/window", method="POST" ,class='d') 
     div(class='d').form-group
     div(class='d e').form-group 
-        label.windowAttr(for='window_type') window type
-        input#item(type='text', name='window_type') 
+        label.windowAttr(for='window_type') window window_type
+        input#window_type(type='text', name='window_type') 
     div(class='d e').form-group 
         label.windowAttr(for='size') window size 
-        input#quantity(type='text', name='size') 
+        input#size(type='text', name='size') 
     div(class='d e').form-group 
         label.windowAttr(for='cost') window cost 
         input#cost(type='number', name='cost') 

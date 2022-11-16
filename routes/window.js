@@ -17,7 +17,7 @@ router.get('/update', window_controlers.window_update_Page);
 /* GET delete costume page */ 
 router.get('/delete', window_controlers.window_delete_Page); 
 // GET request for one window. 
-router.get('/windows/:id', window_controlers.window_detail); 
+router.get('/window/:id', window_controlers.window_detail); 
 module.exports = router;
  
 

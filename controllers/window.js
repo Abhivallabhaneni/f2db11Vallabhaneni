@@ -1,15 +1,15 @@
 var window = require('../models/window'); 
  
-// List of all windows 
+// List of all window 
 exports.window_list = function(req, res) { 
     res.send('NOT IMPLEMENTED: window list'); 
 }; 
 
-// List of all windows 
+// List of all window 
 exports.window_list = async function(req, res) { 
     try{ 
-        thewindows = await window.find(); 
-        res.send(thewindows); 
+        thewindow = await window.find(); 
+        res.send(thewindow); 
     } 
     catch(err){ 
         res.status(500); 
@@ -32,11 +32,11 @@ exports.window_detail = async function(req, res) {
         res.send(`{"error": document for id ${req.params.id} not found`); 
     } 
 }; 
-// List of all windows 
+// List of all window 
 exports.window_detail = async function(req, res) { 
     try{ 
-        thewindows = await window.find(); 
-        res.send(thewindows); 
+        thewindow = await window.find(); 
+        res.send(thewindow); 
     } 
     catch(err){ 
         res.status(500); 
@@ -49,11 +49,11 @@ exports.window_create_post = function(req, res) {
     res.send('NOT IMPLEMENTED: window create POST'); 
 }; 
  
-// List of all windows 
+// List of all window 
 exports.window_create_post = async function(req, res) { 
     try{ 
-        thewindows = await window.find(); 
-        res.send(thewindows); 
+        thewindow = await window.find(); 
+        res.send(thewindow); 
     } 
     catch(err){ 
         res.status(500); 
@@ -78,11 +78,11 @@ exports.window_delete = async function(req, res) {
     } 
 }; 
  
-// List of all windows 
+// List of all window 
 // exports.window_delete = async function(req, res) { 
 //     try{ 
-//         thewindows = await window.find(); 
-//         res.send(thewindows); 
+//         thewindow = await window.find(); 
+//         res.send(thewindow); 
 //     } 
 //     catch(err){ 
 //         res.status(500); 
@@ -99,11 +99,11 @@ exports.window_delete = async function(req, res) {
 //     res.send('NOT IMPLEMENTED: window update PUT' + req.params.id); 
 // }; 
 
-// List of all windows 
+// List of all window 
 // exports.window_update_put = async function(req, res) { 
 //     try{ 
-//         thewindows = await window.find(); 
-//         res.send(thewindows); 
+//         thewindow = await window.find(); 
+//         res.send(thewindow); 
 //     } 
 //     catch(err){ 
 //         res.status(500); 
@@ -187,8 +187,8 @@ exports.window_view_one_Page = async function(req, res) {
 // Handle a show all view 
 exports.window_view_all_Page = async function(req, res) { 
     try{ 
-        thewindows = await window.find(); 
-        res.render('windows', { title: 'window Search Results', results: thewindows }); 
+        thewindow = await window.find(); 
+        res.render('window', { title: 'window Search Results', results: thewindow }); 
     } 
     catch(err){ 
         res.status(500); 
