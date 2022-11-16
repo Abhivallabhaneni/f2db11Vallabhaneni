@@ -19,7 +19,7 @@ exports.window_list = async function(req, res) {
  
 // // for a specific window. 
 exports.window_detail = function(req, res) { 
-    res.send('NOT IMPLEMENTED: window detail: ' + req.params.id); 
+    res.send('NOT IMPLEMENTED: Amoazon detail: ' + req.params.id); 
 }; 
 // for a specific window. 
 exports.window_detail = async function(req, res) { 
@@ -79,16 +79,16 @@ exports.window_delete = async function(req, res) {
 }; 
  
 // List of all windows 
-exports.window_delete = async function(req, res) { 
-    try{ 
-        thewindows = await window.find(); 
-        res.send(thewindows); 
-    } 
-    catch(err){ 
-        res.status(500); 
-        res.send(`{"error": ${err}}`); 
-    }   
-}; 
+// exports.window_delete = async function(req, res) { 
+//     try{ 
+//         thewindows = await window.find(); 
+//         res.send(thewindows); 
+//     } 
+//     catch(err){ 
+//         res.status(500); 
+//         res.send(`{"error": ${err}}`); 
+//     }   
+// }; 
  
 
 
@@ -118,8 +118,8 @@ ${JSON.stringify(req.body)}`)
     try { 
         let toUpdate = await window.findById( req.params.id) 
         // Do updates of properties 
-        if(req.body.item)toUpdate.item = req.body.item; 
-        if(req.body.quantity) toUpdate.quantity = req.body.quantity; 
+        if(req.body.window_type)toUpdate.window_type = req.body.window_type; 
+        if(req.body.size) toUpdate.size = req.body.size; 
         if(req.body.cost) toUpdate.cost = req.body.cost; 
         let result = await toUpdate.save(); 
         console.log("Sucess " + result) 
@@ -133,7 +133,7 @@ failed`);
 //Handle building the view for updating a window. 
 // query provides the id 
 exports.window_update_Page =  async function(req, res) { 
-    console.log("update view for item "+req.query.id) 
+    console.log("update view for window_type "+req.query.id) 
     try{ 
         let result = await window.findById(req.query.id) 
         res.render('windowupdate', { title: 'window Update', toShow: result }); 
@@ -204,8 +204,8 @@ exports.window_create_post = async function(req, res) {
     // Even though bodies can be in many different formats, we will be picky 
     // and require that it be a json object 
     // {"window_type":"goat", "cost":12, "size":"large"} 
-    document.item = req.body.item; 
-    document.quantity = req.body.quantity; 
+    document.window_type = req.body.window_type; 
+    document.size = req.body.size; 
     document.cost = req.body.cost; 
     try{ 
         let result = await document.save(); 
@@ -215,5 +215,4 @@ exports.window_create_post = async function(req, res) {
         res.status(500); 
         res.send(`{"error": ${err}}`); 
     }   
-
 }; 

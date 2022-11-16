@@ -1,0 +1,22 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  - let windowid = toShow._id 
+  - let window_type = toShow.window_type 
+  - let size = toShow.quantity
+  - let cost = toShow.cost
+  div 
+    div.row 
+      div(class='windowAttr mr-3') window ID is: 
+      div #{windowid} 
+    div.row 
+      div(class='windowAttr mr-3') window type is: 
+      div #{window_type} 
+    div.row 
+      div(class='windowAttr mr-3') window size is: 
+      div #{size} 
+    div.row 
+      div(class='windowAttr mr-3') window cost is: 
+      div #{cost} 
