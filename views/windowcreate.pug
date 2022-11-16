@@ -1,20 +1,27 @@
 extends layout 
  
 block content 
-  h1= title 
-  
-  form(id='windowForm', action="/resource/window", method="POST" ,class='d') 
-    div(class='d').form-group
-    div(class='d e').form-group 
-        label.windowAttr(for='window_type') window window_type
-        input#window_type(type='text', name='window_type') 
-    div(class='d e').form-group 
-        label.windowAttr(for='size') window size 
-        input#size(type='text', name='size') 
-    div(class='d e').form-group 
-        label.windowAttr(for='cost') window cost 
-        input#cost(type='number', name='cost') 
-    input(type="submit") 
+  div(class='container', style='border: 2px solid #2192FF; width: 450px;')
+    h1(style="text-align: center; color: #FF1E1E")= title 
+    br
+    div(class='container' style="text-align: center; width: 450px;")
+      form(id='WindowForm', action="/resource/Window", method="POST") 
+        div.form-group 
+          div(class="form-group row mb-2") 
+            label.WindowAttr(for='window_type', class='col-4 col-from-label') Window Name 
+            div(class='col-6' style='width: 250px;')
+              input#window_type(class='form-control form-control-sm', type='text', name='window_type') 
+        div.form-group 
+          div(class="form-group row mb-2") 
+            label.WindowAttr(for='size', class='col-4 col-from-label') Window size 
+            div(class='col-6' style='width: 250px;')
+              input#size(class='form-control form-control-sm', type='text', name='size', step='any') 
+        div.form-group
+          div(class="form-group row mb-2")  
+            label.WindowAttr(for='cost', class='col-4 col-from-label') window cost
+            div(class='col-6' style='width: 250px;')
+              input#cost(class='form-control form-control-sm',  type='number', name='cost') 
+        input(class='btn btn-outline-success' type="submit" style='width: 150px; margin: 6px;') 
     
  
   script. 

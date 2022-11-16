@@ -1,22 +1,23 @@
 extends layout 
  
 block content 
-  h1= title 
- 
-  - let windowid = toShow._id 
-  - let window_type = toShow.window_type 
-  - let size = toShow.size
-  - let cost = toShow.cost
-  div 
-    div.row 
-      div(class='windowAttr mr-3') window ID is: 
-      div #{windowid} 
-    div.row 
-      div(class='windowAttr mr-3') window window_type is: 
-      div #{window_type} 
-    div.row 
-      div(class='windowAttr mr-3') window size is: 
-      div #{size} 
-    div.row 
-      div(class='windowAttr mr-3') window cost is: 
-      div #{cost} 
+  div(class='container', style='border: 2px solid #001253; width: 450px;')
+    h1(style="text-align: center; color: #54B435")= title 
+    br
+    - let windowId = toShow._id 
+    - let window_type = toShow.window_type
+    - let size = toShow.size 
+    - let cost = toShow.cost
+    div(class='container' style="text-align: center; width: 500px;")
+      div(class='row mb-3')
+        div(class='col-3' style='color: #5F9DF7; font-weight: bold;') window ID 
+        div(class='windowAttr detailData col-6' style='color: white;') #{windowId} 
+      div(class='row mb-3')
+        div(class='col-3' style='color: #5F9DF7; font-weight: bold;') window window_type
+        div(class='windowAttr detailData col-6' style='color: white;') #{window_type} 
+      div(class='row mb-3') 
+        div(class='col-3' style='color: #5F9DF7; font-weight: bold;') size
+        div(class='windowAttr detailData col-6' style='color: white;') #{size} 
+      div(class='row mb-3')
+        div(class='col-3' style='color: #5F9DF7; font-weight: bold;') cost 
+        div(class='windowAttr detailData col-6' style='color: white;') #{cost} 

@@ -2,28 +2,34 @@ extends layout
  
 block content 
   h1= title 
- 
-  - let windowid = toShow._id 
-  - let window_type = toShow.window_type 
-  - let size = toShow.size
-  - let cost = toShow.cost
-   
-  div.row(class='mb-2') 
-    div.mr-1 ID is 
-    div #{windowid} 
-  - let actionid = "/resource/window/" + windowid 
-  form(id='windowForm', action= actionid, method="PUT") 
-    div.form-group 
-        label.windowAttr(for='window_type') window_type 
-        input#window_type(type='text', name='window_type', value= window_type ) 
-    div.form-group 
-        label.windowAttr(for='size') window size
-        input#size(type='text', name='size', value= size ) 
-    div.form-group 
-        label.windowAttr(for='cost') window cost 
-        input#cost(type='number', name='cost', value= cost) 
-    input(type="submit") 
- 
+  div.container(style='border: 2px solid #001253; width: 450px;')
+    h1(style="text-align: center; color: red;")= title 
+    br
+    - let windowId = toShow._id
+    - let window_type = toShow.window_type 
+    - let size = toShow.size 
+    - let cost = toShow.cost
+
+    div(class='container' style="text-align: center; width: 450px;")
+      div.row(class='mb-2') 
+        div(class='windowAttr col-4') ID is 
+        div(class='data col-6') #{windowId} 
+      - let actionid = "/resource/window/" + windowId
+      form(id='windowForm', action=actionid, method="PUT") 
+        div(class="form-group row mb-2") 
+            label.windowAttr(for='window_type', class='col-4 col-from-label') window_type 
+            div(class='col-6' style='width: 250px;')
+              input#window_type(class='form-control', type='text', name='window_type', value=`${window_type}`) 
+        div(class="form-group row mb-2") 
+            label.windowAttr(for='size', class='col-4 col-from-label') size
+            div(class='col-6' style='width: 250px;') 
+              input#size(class='form-control', type='text', name='size', step='any', value=`${size}`) 
+        div(class="form-group row mb-2") 
+            label.windowAttr(for='cost', class='col-4 col-from-label') cost
+            div(class='col-6' style='width: 250px;')
+              input#cost(class='form-control' type='number', name='cost', value=`${cost}`) 
+        input(class='btn btn-success' type="submit" style='width: 150px; margin: 6px;') 
+        
   script. 
     document.forms['windowForm'].addEventListener('submit', (event) => { 
       event.preventDefault(); 

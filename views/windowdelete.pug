@@ -1,33 +1,35 @@
 extends layout 
  
 block content 
-  h1= title 
- 
-  if (toShow == null) 
-    h2 No instance to delete 
-  else 
-    - let windowid = toShow._id 
-    - let window_type= toShow.window_type
-    - let windowize = toShow.size 
-    - let windowcost = toShow.cost 
-    - let actionid = "/resource/window/" + windowid 
-    script let actionid = "#{actionid}" 
-    div 
-      div.row 
-        div(class='windowAttr mr-3') window ID is: 
-        div #{windowid} 
-      div.row 
-        div(class='windowAttr mr-3') window window_type is: 
-        div #{window_type} 
-      div.row 
-        div(class='windowAttr mr-3') window size is: 
-        div #{windowize} 
-      div.row 
-        div(class='windowAttr mr-3') window cost is: 
-        div #{windowcost} 
- 
-    button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete 
-    button(class="btn btn-secondary m-2" onclick="cancel()") Cancel 
+  div(class="container", style='border: 2px solid #001253; width: 450px;')
+    h1(style="text-align: center; color: #432C7A")= title 
+    br
+
+    if (toShow == null) 
+        h2 No instance to delete 
+    else 
+        - let windowId = toShow._id 
+        - let window_type = toShow.window_type
+        - let size = toShow.size 
+        - let cost = toShow.cost 
+        - let actionid = "/resource/window/" + windowId
+        script let actionid = "#{actionid}" 
+        div(class='container' style="text-align: center; width: 450px;")
+            div(class='row mb-3') 
+                div(class='windowAttr col-4') window Id
+                div(class='data col-6') #{windowId} 
+            div(class='row mb-3') 
+                div(class='windowAttr col-4') window_type 
+                div(class='data col-6') #{window_type} 
+            div(class='row mb-3') 
+                div(class='windowAttr col-4') size
+                div(class='data col-6') #{size} 
+            div(class='row mb-3') 
+                div(class='windowAttr col-4') cost
+                div(class='data col-6') #{cost} 
+
+            button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete 
+            button(class="btn btn-secondary m-2" onclick="cancel()") Cancel 
  
   script. 
     function cancel() { 
