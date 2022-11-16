@@ -1,0 +1,54 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  if (toShow == null) 
+    h2 No instance to delete 
+  else 
+    - let windowid = toShow._id 
+    - let window_type= toShow.window_type
+    - let windowsize = toShow.size 
+    - let windowcost = toShow.cost 
+    - let actionid = "/resource/windows/" + windowid 
+    script let actionid = "#{actionid}" 
+    div 
+      div.row 
+        div(class='windowAttr mr-3') window ID is: 
+        div #{windowid} 
+      div.row 
+        div(class='windowAttr mr-3') window window_type is: 
+        div #{window_type} 
+      div.row 
+        div(class='windowAttr mr-3') window size is: 
+        div #{windowsize} 
+      div.row 
+        div(class='windowAttr mr-3') window cost is: 
+        div #{windowcost} 
+ 
+    button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete 
+    button(class="btn btn-secondary m-2" onclick="cancel()") Cancel 
+ 
+  script. 
+    function cancel() { 
+      // Go back to the home page for the window collection 
+      window.location.href='/windows' 
+    } 
+  script. 
+    function deleteOnid() { 
+      console.log("starting delete") 
+      // delete first 
+      fetch(actionid, { 
+        method: 'DELETE'      //Dont need a body for the delete 
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Delete succeded") 
+        window.location.href='/windows' 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Delete failed " + error ) 
+      }); 
+    } 
+    
